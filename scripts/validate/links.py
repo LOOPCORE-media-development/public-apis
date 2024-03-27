@@ -2,11 +2,11 @@
 
 import re
 import sys
-import random
 from typing import List, Tuple
 
 import requests
 from requests.models import Response
+import secrets
 
 
 def find_links_in_text(text: str) -> List[str]:
@@ -72,7 +72,7 @@ def fake_user_agent() -> str:
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36',
     ]
 
-    return random.choice(user_agents)
+    return secrets.SystemRandom().choice(user_agents)
 
 
 def get_host_from_link(link: str) -> str:
