@@ -248,7 +248,7 @@ class TestValidadeFormat(unittest.TestCase):
                 err_msg_1 = err_msgs[0]
                 err_msg_2 = err_msgs[1]
 
-                expected_err_msg_1 = f'(L001) auth value is not enclosed with `backticks`'
+                expected_err_msg_1 = '(L001) auth value is not enclosed with `backticks`'
                 expected_err_msg_2 = f'(L001) {auth} is not a valid Auth option'
 
                 self.assertIsInstance(err_msg_1, str)
@@ -458,7 +458,7 @@ class TestValidadeFormat(unittest.TestCase):
         ]
 
         err_msgs = check_file_format(lines=incorrect_format)
-        expected_err_msg = f'(L007) each segment must start and end with exactly 1 space'
+        expected_err_msg = '(L007) each segment must start and end with exactly 1 space'
 
         self.assertIsInstance(err_msgs, list)
         self.assertEqual(len(err_msgs), 1)
