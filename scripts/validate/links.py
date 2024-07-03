@@ -7,6 +7,7 @@ from typing import List, Tuple
 import requests
 from requests.models import Response
 import secrets
+from security import safe_requests
 
 
 def find_links_in_text(text: str) -> List[str]:
@@ -164,7 +165,7 @@ def check_if_link_is_working(link: str) -> Tuple[bool, str]:
     error_message = ''
 
     try:
-        resp = requests.get(link, timeout=25, headers={
+        resp = safe_requests.get(link, timeout=25, headers={
             'User-Agent': fake_user_agent(),
             'host': get_host_from_link(link)
         })
